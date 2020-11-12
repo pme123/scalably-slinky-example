@@ -4,6 +4,26 @@ name := "scalably-slinky-example"
 
 scalaVersion := "2.13.2"
 
+webpackDevServerPort := 8023
+// needed that for intellij extension
+libraryDependencies += "me.shadaj" %% "slinky-core-ijext" % "0.6.5+31-43e32880"
+
+// scalably example
+enablePlugins(ScalablyTypedConverterPlugin)
+enablePlugins(ScalaJSPlugin)
+
+npmDependencies in Compile ++= Seq(
+  "plotly.js" -> "1.57.1",
+  "react-plotly.js" -> "2.5.0",
+  "@types/react-plotly.js" -> "2.2.4",
+  "@types/react" -> "16.9.42",
+  "@types/react-dom" -> "16.9.8",
+)
+stFlavour := Flavour.Slinky
+useYarn := true
+stIgnore := List("react-proxy")
+
+
 npmDependencies in Compile += "react" -> "16.13.1"
 npmDependencies in Compile += "react-dom" -> "16.13.1"
 npmDependencies in Compile += "react-proxy" -> "1.1.8"
@@ -23,7 +43,7 @@ libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.1" % Test
 scalacOptions += "-Ymacro-annotations"
 
 version in webpack := "4.43.0"
-version in startWebpackDevServer:= "3.11.0"
+version in startWebpackDevServer := "3.11.0"
 
 webpackResources := baseDirectory.value / "webpack" * "*"
 

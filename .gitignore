@@ -1,0 +1,10 @@
+/target/
+.bloop/
+.bsp/
+yarn.lock
+.idea/
+.metals/
+project/project/
+project/target/
+project/metals.sbt
+.vscode/settings.json
