@@ -9,7 +9,8 @@ lazy val root = project
     projectSettings,
     slinkyBasics,
     webpackSettings,
-    plotlyExample
+    plotlyExample,
+    antdSettings
   )
 
 lazy val projectSettings: Project => Project =
@@ -17,7 +18,7 @@ lazy val projectSettings: Project => Project =
     name := "scalably-slinky-example",
     version := "0.0.1-SNAPSHOT",
     scalaVersion := "2.13.2",
-    webpackDevServerPort := 8023
+    webpackDevServerPort := 8023,
   )
 
 lazy val slinkyBasics: Project => Project =
@@ -33,12 +34,12 @@ lazy val slinkyBasics: Project => Project =
     libraryDependencies ++= Seq(
       "org.scalatest" %%% "scalatest" % "3.1.1" % Test
     ),
-    npmDependencies in Compile ++= Seq(
+    Compile / npmDependencies ++= Seq(
       "react" -> "16.13.1",
       "react-dom" -> "16.13.1",
       "react-proxy" -> "1.1.8"
     ),
-    npmDevDependencies in Compile ++= Seq(
+    Compile / npmDevDependencies ++= Seq(
       "file-loader" -> "6.0.0",
       "style-loader" -> "1.2.1",
       "css-loader" -> "3.5.3",
@@ -53,7 +54,7 @@ lazy val plotlyExample: Project => Project =
     stFlavour := Flavour.Slinky,
     useYarn := true,
     stIgnore := List("react-proxy"),
-    npmDependencies in Compile ++= Seq(
+     Compile / npmDependencies  ++= Seq(
       "plotly.js" -> "1.57.1",
       "react-plotly.js" -> "2.5.0",
       "@types/react-plotly.js" -> "2.2.4",
@@ -78,4 +79,11 @@ lazy val webpackSettings: Project => Project =
     ),
     webpackDevServerExtraArgs in fastOptJS := Seq("--inline", "--hot"),
     webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly()
+  )
+
+lazy val antdSettings: Project => Project =
+  _.settings(
+    Compile / npmDependencies ++= Seq(
+      "antd" -> "4.8.2"
+    )
   )

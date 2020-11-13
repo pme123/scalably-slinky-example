@@ -6,3 +6,7 @@ This uses the starter Project from Slinky.
 
 And Scalably Typed
 * See here https://scalablytyped.org/docs/readme.html
+
+For the example I used:
+* [Ant Design](https://ant.design)
+* [Plotly](https://github.com/plotly/plotly.js/)

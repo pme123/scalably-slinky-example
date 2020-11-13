@@ -16,10 +16,12 @@
 
 .App-title {
     font-size: 1.5em;
+    color: white;
 }
 
 .App-intro {
     font-size: large;
+    color: white;
 }
 
 @keyframes App-logo-spin {
