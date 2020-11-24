@@ -63,6 +63,13 @@ lazy val plotlyExample: Project => Project =
     )
   )
 
+lazy val antdSettings: Project => Project =
+  _.settings(
+    Compile / npmDependencies ++= Seq(
+      "antd" -> "4.8.2"
+    )
+  )
+
 lazy val webpackSettings: Project => Project =
   _.settings(
     version in webpack := "4.43.0",
@@ -81,9 +88,4 @@ lazy val webpackSettings: Project => Project =
     webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly()
   )
 
-lazy val antdSettings: Project => Project =
-  _.settings(
-    Compile / npmDependencies ++= Seq(
-      "antd" -> "4.8.2"
-    )
-  )
+
