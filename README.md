@@ -1,5 +1,5 @@
 # scalably-slinky-example
-A Simple Example using Slinky with a Scalably Typed example (Plotly).
+A Simple Example using Slinky with a Scalably Typed example (Plotly & Ant Design).
 
 This uses the starter Project from Slinky. 
 * See here: https://slinky.dev/docs/installation/
